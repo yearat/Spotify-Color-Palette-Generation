@@ -4,6 +4,8 @@
 Spotify displays song lyrics on a card during playing a song and the color of the card and the gradient background of the window changes acoording to the colors of the album art/cover. I wanted to replicate this feature on a basic application. I have built a simple web app for automatically generating Spotify like color palette from album arts. 
 The application is built using Django python backend development framework. A color extractor script is used for extracting dominant colors using K means clustering from a given image. Later the extracted colors are sent to the CSS for generating desired styles for the background and the lyric card of the window.
 
+## Screenshot
+![](screenshot.png)
 
 ## Setup & Run
 To run the application, first you need to clone the entire repository and then install the dependencies from the requirements.txt file.

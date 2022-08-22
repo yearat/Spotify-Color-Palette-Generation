@@ -1,0 +1,1 @@
+print("This is inside test_script")

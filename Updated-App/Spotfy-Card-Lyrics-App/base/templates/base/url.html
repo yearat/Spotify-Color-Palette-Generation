@@ -1,0 +1,75 @@
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+  <title>Spotify Card Lyrics</title>
+  <h3 class="page_title">Spotify Lyric Card</h3>
+  <form action="/simple_function">
+    <button id="stat-button" class="btn">ikimashou!</button>
+  </form>
+  <form name = "form" action = "{% url 'url' %}" method = "POST" >
+    {% csrf_token %}
+    {{form}}
+        <button type = "submit" value = "Submit" ></button>
+    </form>
+   
+  <div class="test-ui">
+    <div class="color_1" style="--color_1: {{ color_1 }}"><h5>{{color_1}}</h5></div>
+    <div class="color_2" style="--color_2: {{ color_2 }}"><h5>{{color_2}}</h5></div>
+    <div class="color_3" style="--color_3: {{ color_3 }}"><h5>{{color_3}}<h5></div>
+    <div class="color_4" style="--color_4: {{ color_4 }}"><h5>{{color_4}}<h5></div>
+  </div>
+
+</head>
+<body style="--main: antiquewhite;">
+  <div class="grid-container" style="--gradient-light: {{ gradient_light }}">
+    <div class="album-art">
+      <!-- <img src="{% static 'base/bostonmanor.jpg' %}" alt="default album art"> -->
+      <!-- <img src="{{img_path}}" alt="default album art"> -->
+      {% if default %}
+          <img src="{% static img_path %}" alt="default album art">
+      {% endif %}
+
+      {% if not default %}
+        {% for x in img %}
+          {% if x.id == last_id %}
+             <img src="{{x.photo.url}}" alt="default album art">
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      
+      
+    </div>
+    <div class="empty-space"></div>
+    <div class="title">
+      <h2>Algorithm</h3>
+    </div>
+    <div class="artist">
+      <h4>Boston Manor</h4>
+    </div>
+    <div class="empty-space"></div>
+    <div class="lyric-card" style="--card-color: {{ card_color }}">
+      <h3 class="playing">Baby blue, they paid you to</h3>
+      <h3 class="playing">take my youth and use it up</h3>
+      <h3 class="playing">They don't want a dilettante</h3>
+      <h3 class="playing">from up north in theri club</h3>
+      <h3 class ="yet_to_play">But the truth is I was always</h3>
+      <h3 class="yet_to_play">useless, made excuses (I still do)</h3>
+      <h3 class="yet_to_play">If the dream is fading, well,</h3>
+      <h3 class="yet_to_play">you can always change it</h3>
+    </div>
+    <div class="empty-space"></div>
+  </div>
+
+  
+
+
+  <footer>
+    <p>yearat-2022-</p>
+    <p><a href="https://github.com/yearat">github</a></p>
+  </footer>
+</body>
+</html>
